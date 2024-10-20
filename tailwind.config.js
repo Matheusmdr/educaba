@@ -9,6 +9,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        gray: {
+          "500": "#868D95"
+        },
+        blue: {
+          "500": "#3F4A77"
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -60,6 +66,14 @@ module.exports = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      fontFamily: {
+        'poppins-light': 'Poppins_300Light',
+        'poppins-normal': 'Poppins_400Regular',
+        'poppins-medium': 'Poppins_500Medium',
+        'poppins-semibold': 'Poppins_600SemiBold',
+        'poppins-bold': 'Poppins_700Bold',
+        'poppins-extrabold': 'Poppins_800ExtraBold'
+      }
     },
   },
   plugins: [require('tailwindcss-animate')],
