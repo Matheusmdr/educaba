@@ -1,16 +1,17 @@
 import { View } from "react-native";
+
 import { H1 } from "../../ui/typography";
 
 type HeaderWithLeadProps = {
   title: string;
+  children?: React.ReactNode;
 };
 
-function HeaderWithLead({ title }: HeaderWithLeadProps) {
+function HeaderWithLead({ title, children }: HeaderWithLeadProps) {
   return (
-    <View className="flex-row items-center pb-5">
-      <View className="flex-1">
-        <H1 className="text-[#002055] mt-2 text-2xl">{title}</H1>
-      </View>
+    <View className="flex flex-row items-center justify-between pb-5">
+      <H1 className="text-2xl leading-normal text-[#002055] dark:text-white">{title}</H1>
+      {children}
     </View>
   );
 }

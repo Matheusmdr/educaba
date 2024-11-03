@@ -1,13 +1,13 @@
 import { View } from "react-native";
 
-import Home from "@/assets/images/tab-icons/home.svg";
-import HomeFilled from "@/assets/images/tab-icons/home-filled.svg";
-import Programs from "@/assets/images/tab-icons/programs.svg";
-import ProgramsOutline from "@/assets/images/tab-icons/programs-outline.svg";
-import Analytics from "@/assets/images/tab-icons/analytics.svg";
 import AnalyticsOutline from "@/assets/images/tab-icons/analytics-outline.svg";
-import Settings from "@/assets/images/tab-icons/settings.svg";
+import Analytics from "@/assets/images/tab-icons/analytics.svg";
+import HomeFilled from "@/assets/images/tab-icons/home-filled.svg";
+import Home from "@/assets/images/tab-icons/home.svg";
+import ProgramsOutline from "@/assets/images/tab-icons/programs-outline.svg";
+import Programs from "@/assets/images/tab-icons/programs.svg";
 import SettingsOutline from "@/assets/images/tab-icons/settings-outline.svg";
+import Settings from "@/assets/images/tab-icons/settings.svg";
 
 const icons = {
   home: Home,
@@ -30,10 +30,8 @@ function TabBarIcon({ focused, name }: TabBarIconProps) {
 
   return (
     <>
-      <Icon className="w-6 h-6" />
-      {focused && (
-        <View className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2" />
-      )}
+      <Icon className="h-6 w-6" />
+      {focused && <View className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500" />}
     </>
   );
 }

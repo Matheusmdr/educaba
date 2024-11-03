@@ -1,10 +1,13 @@
-import { View } from "react-native";
-import { HeaderWithLead } from "@/components/header";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function ConfigScreen() {
+import { HeaderWithLead } from "@/components/header";
+import { SelectPatient } from "@/components/select-patient";
+
+export default function AnalyticsScreen() {
   return (
-    <View className="flex-1 pt-8 px-6">
+    <SafeAreaView className="flex-1 p-6">
+      <SelectPatient />
       <HeaderWithLead title="Analytics" />
-    </View>
+    </SafeAreaView>
   );
 }

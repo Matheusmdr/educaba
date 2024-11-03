@@ -1,12 +1,8 @@
-import {
-  Filter,
-  Search as LucideSearch,
-  SlidersHorizontal,
-} from "lucide-react-native";
+import { Search as LucideSearch, SlidersHorizontal } from "lucide-react-native";
 import React, { useState } from "react";
-import { View, TouchableOpacity } from "react-native";
-import { Input } from "./ui/input";
-import { Text } from "./ui/text";
+import { View } from "react-native";
+
+import { Button } from "./ui/button";
 import {
   Dialog,
   DialogClose,
@@ -17,7 +13,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
-import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Text } from "./ui/text";
 
 function Search() {
   const [search, setSearch] = useState("");
@@ -29,11 +26,11 @@ function Search() {
 
   return (
     <Dialog>
-      <View className="p-4">
-        <View className="flex-row items-center border border-gray-300 rounded-xl px-4 py-1">
+      <View className="py-4">
+        <View className="flex-row items-center rounded-xl border border-gray-300 px-4 py-1">
           <LucideSearch size={20} color="#A29EB6" className="mr-2" />
           <Input
-            className="flex-1 h-10 text-base border-transparent"
+            className="h-10 flex-1 border-transparent font-poppins-normal text-base text-foreground"
             placeholder="Pesquisar"
             value={search}
             onChangeText={(text) => setSearch(text)}

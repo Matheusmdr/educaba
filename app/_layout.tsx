@@ -1,26 +1,26 @@
 import "../global.css";
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Theme, ThemeProvider } from "@react-navigation/native";
-import { SplashScreen, Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
-import * as React from "react";
-import { Platform, Text } from "react-native";
-import { NAV_THEME } from "@/lib/constants";
-import { useColorScheme } from "@/hooks/useColorScheme";
-
-import { PortalHost } from "@rn-primitives/portal";
-
 import {
-  useFonts,
   Poppins_300Light,
   Poppins_400Regular,
   Poppins_500Medium,
   Poppins_600SemiBold,
   Poppins_700Bold,
   Poppins_800ExtraBold,
+  useFonts,
 } from "@expo-google-fonts/poppins";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Theme, ThemeProvider } from "@react-navigation/native";
+import { PortalHost } from "@rn-primitives/portal";
+import { SplashScreen, Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import * as React from "react";
+import { Platform } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
 import { Loading } from "@/components/loading";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { NAV_THEME } from "@/lib/constants";
 
 const LIGHT_THEME: Theme = {
   dark: false,
@@ -86,14 +86,17 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-      <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
-      <Stack>
-        <Stack.Screen name="(auth)/signin" options={{ headerShown: false }} />
-        <Stack.Screen name="(main)/(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <PortalHost />
-    </ThemeProvider>
+    <>
+      <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+        <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
+        <SafeAreaProvider>
+          <Stack>
+            <Stack.Screen name="(main)/(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" />
+          </Stack>
+          <PortalHost />
+        </SafeAreaProvider>
+      </ThemeProvider>
+    </>
   );
 }

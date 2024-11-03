@@ -1,11 +1,9 @@
-import { Tabs } from "expo-router";
 import "@/global.css";
+import { Tabs } from "expo-router";
 import React from "react";
 
 import { TabBarIcon } from "@/components/navigation/tabbar-icon";
-import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { View } from "react-native";
 
 export default function TabLayout() {
   const { colorScheme } = useColorScheme();
@@ -16,6 +14,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: colorScheme === "dark" ? "#fff" : "#000",
         headerShown: false,
         tabBarLabel: () => null,
+        tabBarHideOnKeyboard: true,
         tabBarStyle: {
           backgroundColor: colorScheme === "dark" ? "#000" : "#fff",
           height: 70,
@@ -28,16 +27,12 @@ export default function TabLayout() {
           overflow: "hidden",
           position: "absolute",
         },
-      }}
-    >
+      }}>
       <Tabs.Screen
         name="index"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon
-              name={focused ? "home-filled" : "home"}
-              focused={focused}
-            />
+            <TabBarIcon name={focused ? "home-filled" : "home"} focused={focused} />
           ),
         }}
       />
@@ -45,10 +40,7 @@ export default function TabLayout() {
         name="programs"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon
-              name={focused ? "programs-outline" : "programs"}
-              focused={focused}
-            />
+            <TabBarIcon name={focused ? "programs-outline" : "programs"} focused={focused} />
           ),
         }}
       />
@@ -56,10 +48,7 @@ export default function TabLayout() {
         name="analytics"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon
-              name={focused ? "analytics-outline" : "analytics"}
-              focused={focused}
-            />
+            <TabBarIcon name={focused ? "analytics-outline" : "analytics"} focused={focused} />
           ),
         }}
       />
@@ -67,10 +56,7 @@ export default function TabLayout() {
         name="config"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon
-              name={focused ? "settings-outline" : "settings"}
-              focused={focused}
-            />
+            <TabBarIcon name={focused ? "settings-outline" : "settings"} focused={focused} />
           ),
         }}
       />

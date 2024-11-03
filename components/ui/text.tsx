@@ -2,6 +2,7 @@ import * as Slot from "@rn-primitives/slot";
 import { SlottableTextProps, TextRef } from "@rn-primitives/types";
 import * as React from "react";
 import { Text as RNText } from "react-native";
+
 import { cn } from "@/lib/utils";
 
 const TextClassContext = React.createContext<string | undefined>(undefined);
@@ -13,15 +14,15 @@ const Text = React.forwardRef<TextRef, SlottableTextProps>(
     return (
       <Component
         className={cn(
-          "text-base text-foreground web:select-text font-poppins-normal",
+          "font-poppins-normal text-base text-foreground web:select-text",
           textClass,
-          className
+          className,
         )}
         ref={ref}
         {...props}
       />
     );
-  }
+  },
 );
 Text.displayName = "Text";
 
