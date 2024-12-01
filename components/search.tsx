@@ -36,11 +36,7 @@ function Search() {
             onChangeText={(text) => setSearch(text)}
           />
           <DialogTrigger asChild>
-            <Button
-              variant="outline"
-              size={"icon"}
-              className="border-transparent px-0"
-            >
+            <Button variant="outline" size={"icon"} className="border-transparent px-0">
               <SlidersHorizontal size={20} color="#A29EB6" className="ml-2" />
             </Button>
           </DialogTrigger>

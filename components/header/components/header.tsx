@@ -1,3 +1,4 @@
+import React from "react";
 import { View } from "react-native";
 
 import { BackButton } from "@/components/back-button";
@@ -5,14 +6,15 @@ import { P } from "@/components/ui/typography";
 
 interface HeaderProps {
   title: string;
-  backButtonLink?: string;
+  children?: React.ReactNode;
+  showBackButton?: boolean;
 }
 
-function Header({ title, backButtonLink }: HeaderProps) {
+function Header({ title, children, showBackButton }: HeaderProps) {
   return (
     <View className="w-full">
       <View className="flex flex-row items-center justify-between">
-        {!!backButtonLink && backButtonLink.trim() && (
+        {showBackButton && (
           <View className="basis-1/3">
             <BackButton />
           </View>
@@ -21,7 +23,7 @@ function Header({ title, backButtonLink }: HeaderProps) {
           <P className="text-center text-lg">{title}</P>
         </View>
 
-        <View className="basis-1/3" />
+        <View className="basis-1/3">{children}</View>
       </View>
     </View>
   );

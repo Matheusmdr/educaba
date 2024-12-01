@@ -10,10 +10,7 @@ function SelectPatient() {
 
   return (
     <Link href="../patients" asChild>
-      <Button
-        variant={"ghost"}
-        className="mx-auto flex flex-row items-center gap-2"
-      >
+      <Button variant={"ghost"} className="mx-auto flex flex-row items-center gap-2">
         <P>{currentPatientName}</P>
         <ChevronDown size={16} className="text-[#002055] dark:text-white" />
       </Button>

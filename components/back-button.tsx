@@ -1,15 +1,31 @@
-import { ChevronLeft } from "lucide-react-native";
+import { useRouter } from "expo-router";
 
-import { Button } from "./ui/button";
+import { ChevronLeft } from "@/lib/icons/ChevronLeft";
+import { Button, ButtonProps } from "./ui/button";
 
-interface BackButtonProps {
+interface BackButtonProps extends ButtonProps {
   link?: string;
 }
 
-function BackButton({ link }: BackButtonProps) {
+function BackButton({ link, ...rest }: BackButtonProps) {
+  const router = useRouter();
+
+  const handleBackButtonPress = () => {
+    const canGoBack = router.canGoBack();
+
+    if (canGoBack) {
+      router.back();
+    }
+  };
+
   return (
-    <Button variant={"outline"} size={"icon"} className="rounded-full">
-      <ChevronLeft size={20} color={"#002055"} />
+    <Button
+      variant={"outline"}
+      size={"icon"}
+      className="rounded-full"
+      onPress={handleBackButtonPress}
+      {...rest}>
+      <ChevronLeft size={20} className="text-[#002055] dark:text-white" />
     </Button>
   );
 }

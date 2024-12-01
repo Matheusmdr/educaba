@@ -90,10 +90,7 @@ const P = React.forwardRef<TextRef, SlottableTextProps>(
     const Component = asChild ? Slot.Text : RNText;
     return (
       <Component
-        className={cn(
-          "font-poppins-normal text-base text-foreground web:select-text",
-          className,
-        )}
+        className={cn("font-poppins-normal text-base text-foreground web:select-text", className)}
         ref={ref}
         {...props}
       />
@@ -165,10 +162,7 @@ const Large = React.forwardRef<TextRef, SlottableTextProps>(
     const Component = asChild ? Slot.Text : RNText;
     return (
       <Component
-        className={cn(
-          "font-poppins-semibold text-xl text-foreground web:select-text",
-          className,
-        )}
+        className={cn("font-poppins-semibold text-xl text-foreground web:select-text", className)}
         ref={ref}
         {...props}
       />

@@ -1,10 +1,10 @@
+import { Text } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
 import { ContextMenuContent, ContextMenuItem } from "@/components/ui/context-menu";
 import { DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { Pen } from "@/lib/icons/Pen";
 import { Trash } from "@/lib/icons/Trash";
-import { Text } from "react-native";
-
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 interface MenuProps {
   type: "context" | "dropdown";
@@ -32,11 +32,11 @@ function Menu({ type }: MenuProps) {
       }}>
       <MenuItem className="rounded-xl">
         <Pen className="text-primary" width={16} />
-        <Text className="font-poppins-normal text-primary">Editar Paciente</Text>
+        <Text className="font-poppins-normal text-primary">Editar Registro</Text>
       </MenuItem>
       <MenuItem className="rounded-xl">
         <Trash className="text-destructive" width={16} />
-        <Text className="font-poppins-normal text-destructive">Excluir Paciente</Text>
+        <Text className="font-poppins-normal text-destructive">Excluir Registro</Text>
       </MenuItem>
     </MenuContent>
   );
